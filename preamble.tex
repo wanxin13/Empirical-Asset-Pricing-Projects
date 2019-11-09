@@ -1,0 +1,45 @@
+% PACKAGES
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools} % math and figures
+\usepackage{float} % make figure appear where we want with [H]
+\usepackage{filecontents}
+\usepackage[numbered,framed]{matlab-prettifier}
+% these packages include more math symbols you might use
+\usepackage{amsmath,amsfonts,amsthm,amssymb}
+
+
+% PROJECT Specific Information to Fill Out
+\newcommand{\LectureTitle}{Empirical Asset Pricing}
+\newcommand{\LectureDate}{\today}
+\newcommand{\LectureClassName}{ECON676}
+\newcommand{\LatexerName}{Wanxin Chen}
+\author{\LatexerName}
+
+
+% CONFIGURATIONS to make the report look better
+\usepackage{setspace}
+\usepackage{Tabbing}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{extramarks}
+\usepackage{afterpage}
+\usepackage{abstract}
+
+% In case you need to adjust margins:
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+% Setup the header and footer
+\pagestyle{fancy}
+\lhead{\LatexerName}
+\chead{\LectureClassName: \LectureTitle}
+\rhead{\LectureDate}
+\lfoot{\lastxmark}
+\cfoot{}
+\rfoot{Page\ \thepage\ of\ \pageref{LastPage}}
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}

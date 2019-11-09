@@ -1,0 +1,140 @@
+\documentclass{report}
+\include{preamble}
+
+\title{\LectureTitle: Problem Set 1}
+
+\begin{document}
+\maketitle
+\newpage
+
+\section{Exercise 1}
+
+\subsection{a}
+
+Table 1 presents the sample mean and standard deviation for each of the four equal-weight portfolios. Figure 1 is the plot of estimated standard deviations, or say volatilities of equal-weighted portfolios containing different number of stocks. The function curve decreases slower and slower. The results are consistent with my expectations since idiosyncratic risks are diversified away and systematic risks are remained. It does not look like diversification in this way can eliminate all volatilities. Because the curve decreases slower and slower, the curve will be quite steady and still away from zero when the number of stocks go up. Theoretically speaking, systematic risks cannot be elminated through diversification.
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+Number of stocks in portfolio&average returns (\%) &volatility (\%)\\
+\hline
+$5$& $1.5164$ & $9.8671$ \\
+\hline
+$10$& $1.2326$ & $6.8118$ \\
+\hline
+$25$& $1.2119$ & $5.5771$ \\
+\hline
+$50$& $1.2107$ & $5.4281$ \\
+\hline
+\end{tabular}
+\caption{ Monthly Returns of Equal-weight portfolios}
+\end{table}
+
+\begin{figure}[H]
+        \centering 
+         \includegraphics[width=0.7\textwidth]{figures//1a}
+         \caption{ Volatilities of Portfolios containing different number of stocks}
+\end{figure}
+
+\subsection{b}
+Table 2 shows the contributions of variances and covariances to the portfolio variances. Figure 2 is the plot of percentage of the portfolio's variance due to the variances of individual security returns as a function of the number of stocks in the portfolio. The function curve decreases slower and slower, which is consistent with my expectations. Idiiosyncratic risks, or say the variances of individual security returns are well diversified and contributes to the total variances less and less, so percentage of the portfolio's variance due to the variances of individual security returns decreases slower and slower and approches to zero as the number of stocks in the portfolio goes bigger.
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+Number of stocks in portfolio& Contribution of Variances (\%) &Contribution of Covariances (\%)\\
+\hline
+$5$& $46.57$ & $53.43$ \\
+\hline
+$10$& $33.61$ & $66.39$ \\
+\hline
+$25$& $16.31$ & $83.69$ \\
+\hline
+$50$& $7.84$ & $92.16$ \\
+\hline
+\end{tabular}
+\caption{ Decomposition of portfolios variances}
+\end{table}
+\begin{figure}[H]
+        \centering 
+         \includegraphics[width=0.7\textwidth]{figures//1b}
+         \caption{ Contribution of variances to portfolio variances}
+\end{figure}
+
+\subsection{c}
+I cannot decide the value-weighted portfolios exhibit more or less variance relative to equal-weighted portolios. The answer may depend on which stocks you choose, whether stocks you choose are highly correlated, or say the correlations between stocks, and how many stocks you choose. The value-weighted portfolios are not always good ideas, especially one only choose a small number of stocks.
+
+\subsection{d}
+The test statistics is calculated following $\frac{ \hat{\mu}}{ \hat{\sigma}/ \sqrt{n}} $ where $n = 180$. Actually, test statitics follow t-distribution. However, since the sample size is pretty large we can treat the t-distribution with a big degrees of freedom as a standard normal distribution. I cannot reject at 5\% significance level that each of the mean monthly returns on the portfolios is different from zero because all test statitics are far greater than 0, even greater than 1.96.
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|c|}
+\hline
+5&10&25&50\\
+\hline
+$2.0619$& $2.4277$ & $2.9154$& $2.9924$ \\
+\hline
+\end{tabular}
+\caption{ Test statistics for four equal-weight portfolios }
+\end{table}
+
+\subsection{e}
+Table 4 shows the studentized range, skewness and kurtosis of stock TXN, equal-weighted portfolio and market portfolio index. Then, I use the Jarque-Bera test in matlab to test these stocks distributions. The test statistics here are defined as $ JB = \frac{ n-k+1}{ 6} ( S^{2} + \frac{1}{4} (C-3)^{2}) $ where n is the number of observations, k is the number of regressors ($ k = 1$), S is the sample skewness and C is the sample kurtosis. The test statistics follows chi-square distribution with 2 degrees of freedom. Table 4 presents the p-value for these three tests, from which we know that all hypothesis that the stocks or portfolios returns follow a normal distribution are rejected at significance level $ 5\%$.
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+Portfolio&Studentized Range&Skewness &Kurtosis & P-value of JB test\\
+\hline
+TXN & $6.2755$ & $-0.1820$ & $4.0297$& $0.0195$ \\
+\hline
+Equal-weighted Portfolio &$7.7113$& $-0.5244$ & $5.3941$& $1.0000e-03$ \\
+\hline
+Market Portfolio Index &$6.6446$& $-0.6657$ & $4.3339$& $0.0012$ \\
+\hline
+\end{tabular}
+\caption{ Statistics and JB test for Portfolios }
+\end{table}
+\subsection{f}
+Table 5 shows the intercepts and slope coefficients of first ten stocks regress on the value weighted market index.
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+ &TXN&ISRG &CIEN &BHI &WDC &CAH &CCI & BBT& TAP &VMC\\
+\hline
+Intercept& $-0.0987$ & $2.5118$ & $-1.4257$& $-0.0037$ & $2.1986$ & $0.3354$ & $0.7690$ & $0.1996$ & $0.5382$ & $0.3335$\\
+\hline
+Slope Coefficient &$1.3995$ & $1.3993$ & $2.5154$& $1.2665$ & $1.5840$ & $0.6487$ & $1.5545$ & $0.7211$ & $0.7239$ & $1.1185$\\
+\hline
+\end{tabular}
+\caption{ Coefficients of Regression on Market Index }
+\end{table}
+1. Slope coefficient $\beta$ indicates that when return of market index moves 1 percent, the expected return of the stock will moves $\beta$ percent.
+
+2. Intercept of the model indicates that if return of market index is zero, the expected return of the stock will be the intercept value.
+
+3. $ R^{2}$ tells the goodness of the fit of this regression model. It indicates how much variation in returns of stocks can be explained by variation in returns of market.
+
+\section{ Exercise 2}
+\subsection{a}
+Figure 3 is the plot of two kinds of volatility estimates for TXN and Figure 4 is the plot of two kinds of volatility estimates for market. All volatilties start in December, 2001 when we can get a whole year data for the first time. There may be two explainations for the fact that the estimate using only the most recent year data moves around more. The first explaination is that if return follows the same distribution all the time, when you use more data, according to central limit theorem the variance of the estimate would be smaller so the estimate is more accurate and stable. The other explaination is that the if return follows different distribution over the years, the volatility of the return also changes over time. Then, estimator using the data over all the time averages the volatilty before and now and gives a wrong estimate of volatility, or say a biased one. The estimator using recent data gives a better estimate of a changing volatility and the changing volatility moves around all the time. That's why the estimator using recent data moves around more than estimator using the data over all the time.
+\begin{figure}[H]
+        \centering 
+         \includegraphics[width=0.7\textwidth]{figures//2a_TXN}
+         \caption{ Volatility Estimates for TXN}
+\end{figure}
+\begin{figure}[H]
+        \centering 
+         \includegraphics[width=0.7\textwidth]{figures//2a_MKT}
+         \caption{ Two Volatility Estimates for Market Index}
+\end{figure}
+\subsection{b}
+Figure 5 is the plot of OLS betas and their 95\% confidence intervals using all the data and using only one year of past data. All betas start in December, 2001, when we can get a whole year data for the first time. According to the figure, I  think we can conclude that betas move through time because many betas calculated using only one year data are not in the 95\% confidence intervals of betas using all the data. This means we can reject the hypothesis that beta is constant over all the years at many times at 5\% significance level. But we also notice that there are some periods like 2002 to 2004, rolling based betas all fell in the 95\% confidence interval of betas calculated using all the data, which means we cannot reject the hypothesis that beta was constant over these two years. Then, we might want to propose a hypothsis that beta changes once two years and see whether we can or cannot reject the hypothesis.
+\begin{figure}[H]
+        \centering 
+         \includegraphics[width=0.7\textwidth]{figures//2b}
+         \caption{ Two OLS Betas Estimates and 95\% Confidence Interval for Stock TXN}
+\end{figure}
+\end{document}
+
